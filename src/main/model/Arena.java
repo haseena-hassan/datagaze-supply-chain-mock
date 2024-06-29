@@ -2,6 +2,7 @@ package src.main.model;
 
 import java.util.Random;
 
+// TODO: refactor random with Dice attribute
 public class Arena {
     private Player player1;
     private Player player2;
