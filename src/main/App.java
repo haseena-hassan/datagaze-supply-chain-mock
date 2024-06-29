@@ -1,6 +1,7 @@
 package src.main;
 
 import src.main.model.Arena;
+import src.main.model.Dice;
 import src.main.model.Player;
 
 public class App {
@@ -10,8 +11,9 @@ public class App {
 
         Player player1 = new Player("Alice", 50, 10, 8);
         Player player2 = new Player("Bob", 100, 5, 12);
+        Dice dice = new Dice(6);
 
-        Arena arena = new Arena(player1, player2);
+        Arena arena = new Arena(player1, player2, dice);
         System.out.println("Starting the Magical Arena Game!");
 
         System.out.println("Player 1: " + player1.toString());

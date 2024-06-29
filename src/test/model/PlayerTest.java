@@ -11,6 +11,10 @@ public class PlayerTest {
 
     // TODO: Add common runner utility with try-catch block
 
+
+    // TODO: use isString() to check for valid printing
+
+    // TODO: refactor test as testAttributeGetters
     private static void testValidPlayerCreation() {
         Player player = new Player("TestPlayer", 100, 10, 15);
 
@@ -25,8 +29,6 @@ public class PlayerTest {
         }
     }
 
-
-    // TODO: test for health reduction
     private static void testPlayerHealthReduction() {
         // Create a new player and reduce health
         Player player = new Player("TestPlayer", 100, 10, 15);

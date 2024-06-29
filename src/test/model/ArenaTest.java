@@ -1,6 +1,7 @@
 package src.test.model;
 
 import src.main.model.Arena;
+import src.main.model.Dice;
 import src.main.model.Player;
 
 public class ArenaTest {
@@ -17,7 +18,8 @@ public class ArenaTest {
         // Create 2 players and initialize Arena
         Player player1 = new Player("Alice", 50, 10, 8);
         Player player2 = new Player("Bob", 100, 5, 12);
-        Arena arena = new Arena(player1, player2);
+        Dice dice = new Dice(6);
+        Arena arena = new Arena(player1, player2, dice);
 
         try {
             // Test if Arena initialized correctly
@@ -34,7 +36,8 @@ public class ArenaTest {
         // Create two players, initialize Arena and start fight
         Player player1 = new Player("Alice", 50, 10, 8);
         Player player2 = new Player("Bob", 100, 5, 12);
-        Arena arena = new Arena(player1, player2);
+        Dice dice = new Dice(6);
+        Arena arena = new Arena(player1, player2, dice);
         arena.fight();
 
         try {
@@ -51,7 +54,8 @@ public class ArenaTest {
     private static void testFightEndsWithWinner() {
         Player player1 = new Player("Alice", 50, 10, 8);
         Player player2 = new Player("Bob", 100, 5, 12);
-        Arena arena = new Arena(player1, player2);
+        Dice dice = new Dice(6);
+        Arena arena = new Arena(player1, player2, dice);
         arena.fight();
 
         String winner = arena.isGameOver() ? ((player1.getHealth() <= 0) ? player2.getName() : player1.getName()) : null;

@@ -6,12 +6,12 @@ import java.util.Random;
 public class Arena {
     private Player player1;
     private Player player2;
-    private Random random;
+    private Dice dice;
 
-    public Arena(Player player1, Player player2) {
+    public Arena(Player player1, Player player2, Dice dice) {
         this.player1 = player1;
         this.player2 = player2;
-        this.random = new Random();
+        this.dice = dice;
     }
 
     // TODO: Refactor fight method into smaller methods - takeTurns and fight
@@ -20,8 +20,8 @@ public class Arena {
         Player defender = (attacker == player1) ? player2 : player1;
 
         while(!isGameOver()) {
-            int attackRoll = rollDie();
-            int defenseRoll = rollDie();
+            int attackRoll = dice.roll();
+            int defenseRoll = dice.roll();
 
             int attackDamage = attacker.getAttack() * attackRoll;
             int defenseStrength = defender.getStrength() * defenseRoll;
@@ -49,14 +49,7 @@ public class Arena {
         return player1.getHealth() <= 0 || player2.getHealth() <= 0;
     }
 
-    // TODO: Refactor die rolling into separate Dice class
-    private int rollDie() {
-        // Six sided die with values from 1 to 6
-        return random.nextInt(6) + 1;
-    }
-
     // TODO: add method to determine winner
-
 
 }
 
