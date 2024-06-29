@@ -1,16 +1,26 @@
 package src.main.model;
 
 public class Player {
-    private String name;
+    private final String name;
     private int health;
-    private int strength;
-    private int attack;
+    private final int strength;
+    private final int attack;
 
     public Player(String name, int health, int strength, int attack) {
         this.name = name;
         this.health = health;
         this.strength = strength;
         this.attack = attack;
+        validatePlayer();
+    }
+
+    private void validatePlayer() {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
+        if (health <= 0) {
+            throw new IllegalArgumentException("Health must be greater than zero");
+        }
     }
 
     public String getName() {
@@ -33,13 +43,12 @@ public class Player {
         this.health = health;
     }
 
+    public boolean isAlive() {
+        return this.health > 0;
+    }
+
     @Override
     public String toString() {
         return  name + "\t[ Health = " + health + ", Strength = " + strength + ", Attack = " + attack + "]";
     }
-
-    // TODO: add method to check if player is Alive or not
-
-    // TODO: Validate player attributes before beginning the game
-
 }
