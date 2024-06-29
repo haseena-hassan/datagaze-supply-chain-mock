@@ -1,0 +1,18 @@
+# IntelliJ IDEA
+.idea/
+
+# Compiled class files
+*.class
+
+# Logs
+*.log
+
+# Build directories
+target/
+out/
+
+# Module files
+*.iml
+
+# Dependency directories
+
