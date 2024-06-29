@@ -37,4 +37,9 @@ public class Player {
     public String toString() {
         return  name + "\t[ Health = " + health + ", Strength = " + strength + ", Attack = " + attack + "]";
     }
+
+    // TODO: add method to check if player is Alive or not
+
+    // TODO: Validate player attributes before beginning the game
+
 }

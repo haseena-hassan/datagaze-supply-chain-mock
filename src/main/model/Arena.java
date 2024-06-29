@@ -13,6 +13,7 @@ public class Arena {
         this.random = new Random();
     }
 
+    // TODO: Refactor fight method into smaller methods - takeTurns and fight
     public void fight() {
         Player attacker = (player1.getHealth() <= player2.getHealth()) ? player1 : player2;
         Player defender = (attacker == player1) ? player2 : player1;
@@ -47,9 +48,27 @@ public class Arena {
         return player1.getHealth() <= 0 || player2.getHealth() <= 0;
     }
 
+    // TODO: Refactor die rolling into separate Dice class
     private int rollDie() {
-
         // Six sided die with values from 1 to 6
         return random.nextInt(6) + 1;
     }
+
+    // TODO: add method to determine winner
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

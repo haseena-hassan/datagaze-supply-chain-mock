@@ -6,6 +6,8 @@ import src.main.model.Player;
 public class App {
     public static void main(String[] args) {
 
+        // TODO: User to be able to input the player information
+
         Player player1 = new Player("Alice", 50, 10, 8);
         Player player2 = new Player("Bob", 100, 5, 12);
 
