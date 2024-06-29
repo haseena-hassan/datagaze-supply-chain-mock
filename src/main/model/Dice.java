@@ -7,6 +7,7 @@ public class Dice {
     private final Random random;
 
     public Dice(int sides) {
+        if(sides <= 0)  throw new IllegalArgumentException("Number of sides must be greater than zero.");
         this.sides = sides;
         this.random = new Random();
     }

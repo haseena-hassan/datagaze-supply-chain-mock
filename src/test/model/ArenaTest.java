@@ -11,6 +11,8 @@ public class ArenaTest {
         testFightEndsWithWinner();
     }
 
+    // TODO: Add common runner utility with try-catch block
+
     private static void testArenaInitialization() {
         // Create 2 players and initialize Arena
         Player player1 = new Player("Alice", 50, 10, 8);

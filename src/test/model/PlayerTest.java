@@ -9,6 +9,7 @@ public class PlayerTest {
         testPlayerHealthReduction();
     }
 
+    // TODO: Add common runner utility with try-catch block
 
     private static void testValidPlayerCreation() {
         Player player = new Player("TestPlayer", 100, 10, 15);
