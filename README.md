@@ -130,9 +130,9 @@ MagicalArenaGame/
    java src.test.model.PlayerTest 
    java src.test.model.ArenaTest
    java src.test.model.TwoPlayerMatchTest 
-   java src.test.model.RandomPlayerFactoryTest 
-   java src.test.model.SixSidedDiceTest 
-   java src.test.model.UserInputPlayerFactoryTest
+   java src.test.service.RandomPlayerFactoryTest 
+   java src.test.service.SixSidedDiceTest 
+   java src.test.service.UserInputPlayerFactoryTest
 
    ```
 

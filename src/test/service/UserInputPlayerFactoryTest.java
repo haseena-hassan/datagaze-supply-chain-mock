@@ -10,8 +10,8 @@ import java.io.InputStream;
 import java.io.PrintStream;
 
 public class UserInputPlayerFactoryTest {
-    private static InputStream originalIn = System.in;
-    private static PrintStream originalOut = System.out;
+    private static final InputStream originalIn = System.in;
+    private static final PrintStream originalOut = System.out;
 
     public static void main(String[] args) {
         TestUtils.runTest("testCreatePlayerWithValidInput", UserInputPlayerFactoryTest::testCreatePlayerWithValidInput);
@@ -31,8 +31,8 @@ public class UserInputPlayerFactoryTest {
         System.setOut(new PrintStream(mockOutput));
 
         try {
-            UserInputPlayerFactory factory = new UserInputPlayerFactory();
-            Player player = factory.createPlayer();
+            UserInputPlayerFactory userInputPlayerFactory = new UserInputPlayerFactory();
+            Player player = userInputPlayerFactory.createPlayer();
 
             assert "Alice".equals(player.getName()) : "Expected name: Alice, but got: " + player.getName();
             assert player.getHealth() == 100 : "Expected health: 100, but got: " + player.getHealth();
@@ -45,7 +45,7 @@ public class UserInputPlayerFactoryTest {
         }
     }
 
-    // Test if a player is creater with invalid inputs or thrown exception
+    // Test if a player is created with invalid inputs or thrown exception
     private static void testCreatePlayerWithInvalidInput() {
         // Simulating the user input with mock input
         String simulatedInput = "Bob\n-50\ninvalid\n5\n";
@@ -57,8 +57,8 @@ public class UserInputPlayerFactoryTest {
         System.setOut(new PrintStream(mockOutput));
 
         try {
-            UserInputPlayerFactory factory = new UserInputPlayerFactory();
-            Player player = factory.createPlayer();
+            UserInputPlayerFactory userInputPlayerFactory = new UserInputPlayerFactory();
+            userInputPlayerFactory.createPlayer();
             throw new AssertionError("Failed: testCreatePlayerWithInvalidInput, Reason: No exception thrown for invalid input");
         } catch (Exception ignored) {
             // Expected behavior, test passes
@@ -81,8 +81,8 @@ public class UserInputPlayerFactoryTest {
         System.setOut(new PrintStream(mockOutput));
 
         try {
-            UserInputPlayerFactory factory = new UserInputPlayerFactory();
-            Player player = factory.createPlayer();
+            UserInputPlayerFactory userInputPlayerFactory = new UserInputPlayerFactory();
+            userInputPlayerFactory.createPlayer();
 
             String output = mockOutput.toString();
             assert output.contains("Enter health for Bob (give positive integer):") : "Expected prompt for health input";

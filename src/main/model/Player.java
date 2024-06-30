@@ -1,11 +1,13 @@
 package src.main.model;
 
+// Basic player class - Every Player has a “health” attribute, “strength” attribute and an “attack” attribute
 public class Player {
     private final String name;
     private int health;
     private final int strength;
     private final int attack;
 
+    // Player constructor
     public Player(String name, int health, int strength, int attack) {
         this.name = (name == null || name.trim().isEmpty()) ? "Player" : name;
         this.health = health;
@@ -14,6 +16,7 @@ public class Player {
         validatePlayer();
     }
 
+    // Validate player attributes to be positive integers
     private void validatePlayer() {
         if (health <= 0) {
             throw new IllegalArgumentException("Health must be greater than zero");
@@ -26,6 +29,7 @@ public class Player {
         }
     }
 
+    // Necessary Getters and setters
     public String getName() {
         return name;
     }
@@ -46,6 +50,7 @@ public class Player {
         this.health = health;
     }
 
+    // Check if player is alive
     public boolean isAlive() {
         return this.health > 0;
     }

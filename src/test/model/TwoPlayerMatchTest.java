@@ -7,10 +7,14 @@ import src.main.service.Dice;
 import src.main.service.SixSidedDice;
 import src.test.utils.TestUtils;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class TwoPlayerMatchTest {
+    private static final PrintStream originalOut = System.out;
 
     public static void main(String[] args) {
         TestUtils.runTest("testStartGameWithValidPlayers", TwoPlayerMatchTest::testStartGameWithValidPlayers);
@@ -27,22 +31,36 @@ public class TwoPlayerMatchTest {
 
         TwoPlayerMatch match = new TwoPlayerMatch(arena, players);
 
+        // redirecting output stream to mask the game logs
+        ByteArrayOutputStream mockOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(mockOutput));
+
         match.startGame();
+        // Revert to Original System Output
+        System.setOut(originalOut);
     }
 
     // Test to ensure startGame throws exception with insufficient players
     private static void testStartGameWithInsufficientPlayers() {
         Player player1 = new Player("Alice", 60, 10, 8);
         Arena arena = new Arena(new MockDice());
-        List<Player> players = Arrays.asList(player1);
+        List<Player> players = new ArrayList<>();
+        players.add(player1);
 
         TwoPlayerMatch match = new TwoPlayerMatch(arena, players);
+
+        // redirecting output stream to mask the game logs
+        ByteArrayOutputStream mockOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(mockOutput));
 
         try {
             match.startGame();
             throw new AssertionError("Expected an exception for insufficient players but none was thrown.");
         } catch (IllegalArgumentException e) {
             // Expected exception, test passes
+        } finally {
+            // Revert to Original System Output
+            System.setOut(originalOut);
         }
     }
 
@@ -55,7 +73,14 @@ public class TwoPlayerMatchTest {
 
         TwoPlayerMatch match = new TwoPlayerMatch(arena, players);
 
+        // redirecting output stream to mask the game logs
+        ByteArrayOutputStream mockOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(mockOutput));
+
         match.startGame();
+        // Revert to Original System Output
+        System.setOut(originalOut);
+
         assert player1.isAlive() : "Winner should be Alice, but Alice is not alive.";
         assert !player2.isAlive() : "Bob should be defeated but Bob is alive.";
     }

@@ -10,6 +10,7 @@ public class SixSidedDice implements Dice {
         this.random = new Random();
     }
 
+    // returns a randow integer from 1 to 6
     @Override
     public int roll() {
         return random.nextInt(6) + 1;

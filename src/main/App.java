@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+// Main Entry point class for running the Magical Arena Game
 public class App {
 
     // Inject the PlayerFactory implementation based on user's choice, i.e. user input or random
@@ -31,6 +33,7 @@ public class App {
         }
     }
 
+    // Entry point main menthod
     public static void main(String[] args) {
 
         // dynamically creation of players: From user input or random.
