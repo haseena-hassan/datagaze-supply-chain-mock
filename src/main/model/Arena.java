@@ -1,5 +1,7 @@
 package src.main.model;
 
+import src.main.service.Dice;
+
 public class Arena {
     private final Player player1;
     private final Player player2;

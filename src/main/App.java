@@ -1,11 +1,12 @@
 package src.main;
 
 import src.main.model.Arena;
-import src.main.model.Dice;
 import src.main.model.Player;
 import src.main.service.PlayerFactory;
 import src.main.service.RandomPlayerFactory;
 import src.main.service.UserInputPlayerFactory;
+import src.main.service.Dice;
+import src.main.service.SixSidedDice;
 
 import java.util.Scanner;
 
@@ -33,7 +34,7 @@ public class App {
         Player player1 = playerFactory.createPlayer();
         Player player2 = playerFactory.createPlayer();
 
-        Dice dice = new Dice(6);
+        Dice dice = new SixSidedDice();
         Arena arena = new Arena(player1, player2, dice);
 
         System.out.println("\nStarting the Magical Arena Game!");
