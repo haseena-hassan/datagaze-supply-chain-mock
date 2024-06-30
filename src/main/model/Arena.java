@@ -9,13 +9,6 @@ public class Arena {
         this.player1 = player1;
         this.player2 = player2;
         this.dice = dice;
-        validatePlayers();
-    }
-
-    private void validatePlayers() {
-        if(player1.getAttack()==0 && player2.getAttack()==0) {
-            throw new IllegalStateException("Attack value for both players cannot be 0.");
-        }
     }
 
     public void startGame() {

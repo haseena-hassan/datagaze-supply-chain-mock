@@ -7,7 +7,7 @@ public class Player {
     private final int attack;
 
     public Player(String name, int health, int strength, int attack) {
-        this.name = name;
+        this.name = (name == null || name.trim().isEmpty()) ? "Player" : name;
         this.health = health;
         this.strength = strength;
         this.attack = attack;
@@ -15,11 +15,14 @@ public class Player {
     }
 
     private void validatePlayer() {
-        if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be null or empty");
-        }
         if (health <= 0) {
             throw new IllegalArgumentException("Health must be greater than zero");
+        }
+        if (strength <= 0) {
+            throw new IllegalArgumentException("Strength must be greater than zero");
+        }
+        if (attack <= 0) {
+            throw new IllegalArgumentException("Attack must be greater than zero");
         }
     }
 
