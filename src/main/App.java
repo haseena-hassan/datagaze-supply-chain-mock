@@ -28,7 +28,10 @@ public class App {
 
     public static void main(String[] args) {
 
-        // TODO: add functionality to extend game to multi-players
+        /*
+         TODO: Use TwoPlayerMatch class to instantiate a Match with List of 2 Players
+          (can be be extended for different type of matches)
+        */
 
         PlayerFactory playerFactory = getPlayerFactory();
         Player player1 = playerFactory.createPlayer();

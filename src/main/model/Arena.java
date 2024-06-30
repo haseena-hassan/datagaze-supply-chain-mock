@@ -2,6 +2,7 @@ package src.main.model;
 
 import src.main.service.Dice;
 
+// TODO: Refactor Arena to hold only dice attribute and handle simple fight logic between any attacker and defender
 public class Arena {
     private final Player player1;
     private final Player player2;
@@ -13,6 +14,7 @@ public class Arena {
         this.dice = dice;
     }
 
+    // TODO: Refactor startGame() method to fight function between any 2 players, which is attacker and defender
     public void startGame() {
         Player attacker = (player1.getHealth() <= player2.getHealth()) ? player1 : player2;
         Player defender = (attacker == player1) ? player2 : player1;
@@ -43,6 +45,7 @@ public class Arena {
         System.out.println();
     }
 
+    // TODO: Incorporate gameOver() and determineWinner() logic into fight's logic making it simpler
     public boolean gameOver() {
         return !player1.isAlive() || !player2.isAlive();
     }
